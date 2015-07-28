@@ -1,14 +1,14 @@
 package com.exallium.monads;
 
-public class Nothing<I> implements Maybe<I> {
+public class Nothing<A> implements Maybe<A> {
     @Override
-    public <O> Nothing<O> bind(Function<I, ? extends Monad<O>> function) {
-        return new Nothing<O>();
+    public <B> Nothing<B> bind(Function<A, Maybe<B>> function) {
+        return new Nothing<B>();
     }
 
     @Override
-    public Nothing<I> identity(I value) {
-        return new Nothing<I>();
+    public Nothing<A> identity(A value) {
+        return new Nothing<A>();
     }
 
     @Override

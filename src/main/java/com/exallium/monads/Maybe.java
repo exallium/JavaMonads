@@ -1,7 +1,6 @@
 package com.exallium.monads;
 
-public interface Maybe<I> extends Monad<I> {
-    // a -> (a -> Maybe b) -> Maybe b
-    <O> Maybe<O> bind(Function<I, ? extends Monad<O>> function);
-    Maybe<I> identity(I value);
+public interface Maybe<A> {
+    <B> Maybe<B> bind(Function<A, Maybe<B>> function);
+    Maybe<A> identity(A value);
 }
